@@ -1,0 +1,21 @@
+type ClinicalTrial {
+  site: String!
+  country: String!
+  city: String!
+  patients: Int!
+}
+
+"""An object with an ID"""
+interface Node {
+  """The id of the object."""
+  id: ID!
+}
+
+type Query {
+  """Fetches an object given its ID"""
+  node(
+    """The ID of an object"""
+    id: ID!
+  ): Node
+  clinicalTrials(patientsSortDirection: String, countriesSortDirection: String, countryListCollection: String): [ClinicalTrial!]!
+}
